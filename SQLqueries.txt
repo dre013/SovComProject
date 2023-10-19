@@ -1,0 +1,23 @@
+Задание 2.а:
+
+SELECT "Name", "Inn", COUNT(*) AS count_obligation
+FROM "MonetaryObligation" mo
+JOIN "Debtor" de ON mo.owner_id = de.owner_id
+GROUP BY "Name", "Inn", de.owner_id
+ORDER BY count_obligation DESC limit 10
+
+Задание 2.b:
+
+SELECT "Name", "Inn", SUM("DebtSum") AS sum_debt_sum
+FROM "MonetaryObligation" mo
+JOIN "Debtor" de ON mo.owner_id = de.owner_id
+GROUP BY "Name", "Inn", de.owner_id
+ORDER BY sum_debt_sum DESC limit 10
+
+Задание 2.c
+
+SELECT "Name", "Inn", "CreditorName", ROUND((SUM("TotalSum") - SUM("DebtSum")) / (SUM("TotalSum") + SUM("PenaltySum")) * 100, 2) AS Procent
+FROM "MonetaryObligation" mo
+JOIN "Debtor" de ON mo.owner_id = de.owner_id
+GROUP BY "Name", "Inn", "CreditorName", "TotalSum", "PenaltySum", "DebtSum", de.owner_id
+ORDER BY Procent ASC;
