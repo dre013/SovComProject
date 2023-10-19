@@ -1,0 +1,16 @@
+version: '3.1'
+
+services:
+  
+  pgdb:
+    image: postgres
+
+    environment:
+      - POSTGRES_DB=test_DB
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=111
+    container_name: pgdb
+    ports:
+      - "5433:5432"
+    volumes:
+      - .:/var/lib/postgresql/data3
