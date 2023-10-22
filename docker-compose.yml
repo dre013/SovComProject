@@ -4,7 +4,6 @@ services:
   
   pgdb:
     image: postgres
-
     environment:
       - POSTGRES_DB=test_DB
       - POSTGRES_USER=postgres
@@ -13,4 +12,4 @@ services:
     ports:
       - "5433:5432"
     volumes:
-      - .:/var/lib/postgresql/data3
+      - /volumes/svb:/var/lib/postgresql/data3

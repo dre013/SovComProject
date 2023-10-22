@@ -6,13 +6,19 @@
 
 2) Запускаем следующий скрипт для построения контейнера:
 
-    docker-compose up --build
+    docker-compose up -d --build
 
 3) Для создания БД и занесения данных на Windows, запускаем скрипт:
 
-    python app\main.py
+    переходим в SovComProject/app:
+    cd app
+
+    python main.py
 
 4) Для просмотра результатов 2-го задания, запускаем:
+
+    переходим в корневую папку:
+    cd ..
 
     python SQL_queries.py
 
